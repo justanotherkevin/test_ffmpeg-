@@ -1,6 +1,6 @@
 class FfmpegsController < ApplicationController
   before_action :find_ffmpeg, only: [:show, :edit, :update, :destroy]
-
+  # include FfmpegsConverter
   def index
     @ffmpegs = Ffmpeg.all.order('created_at DESC')
   end
@@ -10,14 +10,14 @@ class FfmpegsController < ApplicationController
 
   def new
     @options_formate = ["AVI", "ASF", "MOV", "AVCHD", "FLV","MPG","MP4","WMV"]
-    @options_resolution = ["720×480","640×480", "512×384", "480×320", "320×240", "1920x1080", "1280x720", "854×480", "768×432", "640×360", "512×288", "320×180",]
+    @options_resolution = ["720×480","640×480", "512×384", "480×320", "320×240", "1920x1080", "1280x720", "854×480", "768×432", "640×360", "512×288", "320×180"]
     @ffmpeg = Ffmpeg.new
   end
 
   def create
+    # conversion_option = params[:ffmpeg][:conversion_option]
+    hello = FfmpegsConverter.new(params)
     debugger
-    conversion_option = params[:ffmpeg][:conversion_option]
-    transcoder_options =
     @ffmpeg = Ffmpeg.new(ffmpeg_params)
 
     if @ffmpeg.save
