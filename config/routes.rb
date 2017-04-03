@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :ffmpegs
 
-  root "ffmpegs#index"
+  root "ffmpegs#new"
 end

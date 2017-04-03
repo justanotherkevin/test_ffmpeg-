@@ -1,13 +1,20 @@
 - if flash[:notice]
   = flash[:notice]
-%h3 
-  = @ffmpeg.title
-%p
-  = @ffmpeg.description
+  %br
+-# %h3
+  -# = @ffmpeg.title
+-# %p
+  -# = @ffmpeg.description
+%div.video_container
 = video_tag @ffmpeg.video.url, controls: true, style: "max-width: 100%;"
+debugger
+= video_tag @ffmpeg.video.url(:mp4), controls: true, style: "max-width: 100%;"
+= video_tag @ffmpeg.video.url(:thumb), controls: true, style: "max-width: 100%;"
+
+-# = video_tag @ffmpeg.path, controls: true, style: "max-width: 100%;"
 
 %br/
 
 = link_to "Back", root_path
-= link_to "edit", edit_ffmpeg_path
-= link_to "delete", ffmpeg_path, method: :delete, data: {confirm: "last chance"}
+-# = link_to "edit", edit_ffmpeg_path
+-# = link_to "delete", ffmpeg_path, method: :delete, data: {confirm: "last chance"}
