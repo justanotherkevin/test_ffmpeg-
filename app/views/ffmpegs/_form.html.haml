@@ -9,8 +9,8 @@
         %li= msg
   %div.panel-body
     = f.input :video, as: :file
-    -# = f.simple_fields_for :conversion_option, @ffmpeg.conversion_option do |option|
-    -#   = option.input :file_type, collection: @options_formate, prompt: "File formate", selected: "MP4"
-    -#   = option.input :resolution, collection: @options_resolution, prompt: "Resolution", selected: "480×320"
-    -#   = option.input :frame_rate, collection: 3..30, prompt: "Frame Rate", selected: 7
+    = f.simple_fields_for :conversion_option, @ffmpeg.conversion_option do |option|
+      = option.input :file_type, collection: @options_format, prompt: "File format", selected: "MP4"
+      = option.input :resolution, collection: @options_resolution, prompt: "Resolution", selected: "480×320"
+      = option.input :frame_rate, collection: 3..30, prompt: "Frame Rate", selected: 7
   = f.button :submit, "Custom Button Text", class: "my-button"

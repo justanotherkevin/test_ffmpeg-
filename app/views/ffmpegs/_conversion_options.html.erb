@@ -1,9 +1,0 @@
-<%= form_for :conversion_options do |f| %>
-  file_type: <%= f.text_field :file_type %>
-  Last name : <%= f.text_field :last_name %>
-  Biography : <%= text_area :person, :biography %>
-  File formate : <%= f.select :file_formate, options_for_select(["Cell", "Work", "Office", "Home", "Other"]), :prompt => "Select One", :class => 'genForm_dropBox' %>
-  <%= f.button :submit %>
-  <br>
-
-<% end %>

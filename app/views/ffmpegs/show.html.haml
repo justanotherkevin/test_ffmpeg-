@@ -6,8 +6,8 @@
 -# %p
   -# = @ffmpeg.description
 %div.video_container
+= video_tag @new_movie.path, control: true, style: "max-width: 100%;"
 = video_tag @ffmpeg.video.url, controls: true, style: "max-width: 100%;"
-debugger
 = video_tag @ffmpeg.video.url(:mp4), controls: true, style: "max-width: 100%;"
 = video_tag @ffmpeg.video.url(:thumb), controls: true, style: "max-width: 100%;"
 
